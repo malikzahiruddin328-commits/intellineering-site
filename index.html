@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intellineering — engineering problems, solved</title>
+<meta name="description" content="Intellineering Ltd is a small engineering and technology company in Aberdeen. Process engineering, process safety and plant performance, and the software we build alongside it.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://intellineering.com/">
+<meta property="og:title" content="Intellineering — engineering problems, solved">
+<meta property="og:description" content="A small engineering and technology company in Aberdeen. Bring us the problem.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://intellineering.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF8F3; --paper:#FFFDF8; --band:#F1ECDF; --ink:#1D1C19; --mut:#4C4A44;
+  --soft:#6B675E; --line:#D7D1C3; --ac:#8A2B1F; --dark:#1D1C19; --darkfg:#F3EEE2;
+  --darkmut:#CFC8B8; --grey:#55595B; --orange:#FF5A1F;
+  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --ui:'IBM Plex Sans',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+a{color:var(--ac)}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:600;letter-spacing:-.01em}
+p{margin:0}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:12px 18px;z-index:99}
+.skip:focus{left:8px;top:8px}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+
+/* ---------- nav ---------- */
+header.top{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+.lock{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+.lock .word{font-family:var(--serif);font-weight:600;letter-spacing:.06em;font-size:1.05rem}
+.navlinks{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-family:var(--ui);font-size:.95rem}
+.navlinks a{color:var(--mut);text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent}
+.navlinks a:hover,.navlinks a:focus-visible{color:var(--ink);border-bottom-color:var(--ac)}
+@media (max-width:760px){.navlinks{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--bg);padding:72px 0 64px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--ui);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:22px}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:1.02;max-width:12ch}
+.hero h1 i{font-style:italic;color:var(--ac)}
+.lead{margin-top:22px;max-width:46ch;font-size:clamp(1.08rem,2vw,1.32rem);line-height:1.5;color:var(--mut)}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-block;font-family:var(--ui);font-size:.98rem;font-weight:600;padding:14px 26px;border-radius:2px;text-decoration:none;border:1.5px solid transparent}
+.btn.p{background:var(--ac);color:#fff;border-color:var(--ac)}
+.btn.p:hover{background:#6E2218;border-color:#6E2218}
+.btn.g{border-color:rgba(29,28,25,.55);color:var(--ink)}
+.btn.g:hover{background:rgba(29,28,25,.06)}
+
+/* ---------- bands ---------- */
+.who{background:var(--band);border-bottom:1px solid var(--line);padding:56px 0}
+.who h2{font-size:clamp(1.6rem,3.4vw,2.3rem);max-width:20ch}
+.who p{margin-top:14px;max-width:62ch;color:var(--mut)}
+section.block{padding:66px 0}
+section.block h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+.more{margin-top:12px;max-width:58ch;color:var(--mut);font-size:1.04rem}
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:34px;margin-top:40px}
+.work article{border-top:1px solid var(--line);padding-top:18px}
+.work h3{font-size:1.24rem}
+.work p{margin-top:8px;color:var(--mut);font-size:1rem}
+.method{margin-top:52px;padding-top:26px;border-top:2px solid var(--ink)}
+.method h3{font-size:1.3rem}
+.method p{margin-top:10px;max-width:62ch;color:var(--mut)}
+
+/* ---------- contact ---------- */
+.contact{background:var(--band);border-top:1px solid var(--line);padding:66px 0}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;margin-top:34px}
+@media (max-width:820px){.two{grid-template-columns:1fr;gap:38px}}
+form{display:flex;flex-direction:column;gap:18px}
+label{display:block;font-family:var(--ui);font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+input,textarea{width:100%;font-family:var(--serif);font-size:1rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:12px 13px}
+textarea{min-height:132px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--ac);outline:2px solid rgba(138,43,31,.25);outline-offset:0}
+form small{display:block;margin-top:7px;font-family:var(--ui);font-size:.82rem;color:var(--soft)}
+form button{align-self:flex-start;cursor:pointer;font-family:var(--ui)}
+.details p{margin-bottom:22px;font-size:1.02rem}
+.details strong{display:block;font-family:var(--ui);font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--soft);margin-bottom:5px}
+
+/* ---------- footer ---------- */
+footer{background:var(--dark);color:var(--darkmut);padding:40px 0;font-family:var(--ui);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--darkfg)}
+footer .legal{max-width:58ch;line-height:1.7}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="lock" href="#top" aria-label="Intellineering, home">
+        <svg width="43" height="30" viewBox="0 0 100 70" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="azline" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#55595B"/>
+              <stop offset="55%" stop-color="#55595B"/>
+              <stop offset="85%" stop-color="#FF5A1F"/>
+            </linearGradient>
+          </defs>
+          <path d="M10,46 L26,10 L44,60 C48,46 50,36 53,28 L71,52 L91,6"
+                fill="none" stroke="url(#azline)" stroke-width="8"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="word">INTELLINEERING</span>
+      </a>
+      <ul class="navlinks">
+        <li><a href="#what">What we do</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div id="top"></div>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Process engineering &middot; Safety studies &middot; Asset integrity &middot; RBI &middot; CFD &middot; Software</p>
+    <h1>Engineering problems, <i>solved.</i></h1>
+    <p class="lead">Bring us the problem. We&rsquo;ll work out what it takes to solve it &mdash; analysis, design, simulation, software.</p>
+    <div class="acts">
+      <a class="btn p" href="#contact">Talk to an engineer</a>
+      <a class="btn g" href="#what">What we do</a>
+    </div>
+  </div>
+</section>
+
+<section class="who" id="about">
+  <div class="wrap">
+    <h2>Engineering roots. Moving into technology.</h2>
+    <p>Process engineering that keeps real plant safe and running is what this company was built on. The software we&rsquo;re building now &mdash; starting with Fugacity &mdash; is where we&rsquo;re heading. Engineering stays the foundation.</p>
+  </div>
+</section>
+
+<section class="block" id="what">
+  <div class="wrap">
+    <h2>What we do</h2>
+    <p class="more">These are examples, not a menu. If it&rsquo;s an engineering problem, we want to hear about it.</p>
+    <div class="work">
+      <article>
+        <h3>Process engineering &amp; design</h3>
+        <p>From concept to FEED: design basis, PFDs and P&amp;IDs, heat and mass balances, equipment sizing and datasheets.</p>
+      </article>
+      <article>
+        <h3>Simulation, CFD &amp; optimisation</h3>
+        <p>Aspen HYSYS and Aspen Plus models, hydraulics, sensitivity studies and debottlenecking, and CFD for mixing, heat transfer and flow.</p>
+      </article>
+      <article>
+        <h3>Process safety</h3>
+        <p>HAZID and HAZOP support, LOPA, relief and flare studies to API 520 and 521, with actions that actually close.</p>
+      </article>
+      <article>
+        <h3>Asset integrity, RBI &amp; third&#8209;party inspection</h3>
+        <p>Risk&#8209;based inspection planning, integrity reviews and independent third&#8209;party inspection for plant that has to keep running.</p>
+      </article>
+      <article>
+        <h3>Plant performance &amp; energy efficiency</h3>
+        <p>Troubleshooting, capacity studies, waste heat recovery and energy efficiency &mdash; to get more from the plant you already have.</p>
+      </article>
+      <article>
+        <h3>Engineering software</h3>
+        <p>Calculation tools and automation, built because the engineering needed them. Starting with Fugacity, our process simulation tool &mdash; a free licence for every school and university, forever; support is optional and paid.</p>
+      </article>
+      <article>
+        <h3>How we&rsquo;re set up</h3>
+        <p>A small team. We lead the work, set the scope and stay responsible for quality. When a job needs more people, we bring in vetted specialists and review everything before it reaches you.</p>
+      </article>
+    </div>
+    <div class="method">
+      <h3>Every project follows one method</h3>
+      <p>DMAIC, the Lean Six Sigma way of fixing a problem with data: Define, Measure, Analyse, Improve, Control. Led by a Six Sigma Green Belt.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Got a problem worth solving?</h2>
+    <p class="more">Tell us what&rsquo;s going wrong. An engineer, not a salesperson, will reply.</p>
+    <div class="two">
+      <form id="enquiry" action="mailto:info@intellineering.com" method="post" enctype="text/plain">
+        <div>
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="f-co">Company</label>
+          <input id="f-co" name="company" type="text" autocomplete="organization">
+        </div>
+        <div>
+          <label for="f-mail">Your email</label>
+          <input id="f-mail" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="f-msg">What is the problem?</label>
+          <textarea id="f-msg" name="message" required></textarea>
+          <small>The plant, what is going wrong, and any deadline.</small>
+        </div>
+        <button class="btn p" type="submit">Send to the team</button>
+        <small id="formnote">This opens your own email program with the message ready to send.</small>
+      </form>
+      <div class="details">
+        <p><strong>Prefer email?</strong><a href="mailto:info@intellineering.com">info@intellineering.com</a></p>
+        <p><strong>Registered office</strong>Intellineering Ltd<br>116 Balnagask Circle<br>Aberdeen, Scotland, AB11 8TT</p>
+        <p><strong>Company number</strong>SC625132</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="legal">Intellineering Ltd is a private limited company registered in Scotland, company number SC625132. Registered office: 116 Balnagask Circle, Aberdeen, Scotland, AB11 8TT.</p>
+    <p>&copy; 2026 Intellineering Ltd</p>
+  </div>
+</footer>
+
+<script>
+/* The form has no server. Submitting composes a message in the visitor's own
+   email program, pre-filled, addressed to the published contact address.
+   Nothing is silently swallowed and nothing pretends to have been sent. */
+(function () {
+  var f = document.getElementById('enquiry');
+  if (!f) return;
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    var v = function (id) { return (document.getElementById(id).value || '').trim(); };
+    var subject = 'Website enquiry' + (v('f-co') ? ' — ' + v('f-co') : '');
+    var body =
+      'Name: ' + v('f-name') + '\n' +
+      'Company: ' + (v('f-co') || '—') + '\n' +
+      'Email: ' + v('f-mail') + '\n\n' +
+      v('f-msg') + '\n';
+    window.location.href = 'mailto:info@intellineering.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
